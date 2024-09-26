@@ -1,0 +1,95 @@
+Hospital Management System
+create database project1;
+use project1;
+
+-- table patient -----------------------------------------
+create  table patient(patient_id int primary key,
+patient_name varchar(20),
+patient_age int,
+gender varchar(20),
+address varchar(20),
+contact_number bigint,
+email varchar(50));
+
+desc patient;
+select * from patient;
+insert into patient values(101,'john',20,'male','hyd',9878990767,'john229@gmail.com');
+insert into patient values(102,'jerry',22,'female','Bangolore',768905432,'jerry67@gmail.com');
+insert into patient values(103,'smith',23,'female','Hyderabad',6789054322,'smith560gmail.com');
+
+
+-- doctor table--------------------------------------------------------------------------------------------
+create table Doctor(
+Doctor_id int primary key,
+doctor_name varchar(20),
+specialized varchar(20),
+contact_info bigint,
+email varchar(80),
+availability varchar(30),
+experience int);
+
+desc Doctor;
+select * from Doctor;
+insert into Doctor values(1,'shailaja','Gynocologist',7088080880,'shailaja2@gmail.com','Available',10);
+insert into Doctor values(2,'Murali','Dentist',8989898213,'murali89@gmail.com','not available',12);
+insert into Doctor values(3,'Srinivas','Dermotologist',5678895431,'srinu234@gmail.com','Available',15);
+
+desc Appointment;
+
+
+
+
+
+-- Medical table-------------------------------------------------------------
+create table Medical(
+Record_id int primary key,
+patient_id int,
+Doctor_id int,
+foreign key(patient_id) references patient(patient_id),
+foreign key(Doctor_id) references Doctor(Doctor_id));
+
+
+desc Medical;
+select * from Medical;
+insert into Medical values(768,101,1);
+insert into Medical values(783,102,2);
+insert into Medical values(867,103,3);
+
+
+-- Billing table-------------------------------------------------------------------------------------------------------------------
+create table Billing(
+Bill_id int primary key,
+patient_id int,
+foreign key(patient_id) references patient(patient_id),
+amount bigint,
+payment_status varchar(20),
+bill_Date date,
+payment_method varchar(30));
+
+drop table Billing;
+
+drop table Billing;
+
+insert into Billing values(1010,101,5000,'paid','2024-09-10','online');
+insert into Billing values(1011,102,6000,'not paid','2024-05-12','online');
+insert into Billing values(1012,103,8000,'paid','2024-07-17','offline');
+
+
+
+
+
+-- Rooms table----------------------------------------------------------------------------------------
+
+
+create table  Room(Room_id int primary key,
+Room_Type varchar(50),
+Status varchar(40),
+patient_id int,
+foreign key(patient_id) references patient(patient_id));
+insert into Room values(20243,'General','Available',101);
+insert into Room values(20244,'private','Available',102);
+insert into Room values(20245,'ICU','Available',103);
+desc Room;
+select * from Room;
+
+
