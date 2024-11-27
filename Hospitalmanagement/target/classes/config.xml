@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hibernate-configuration>
+<session-factory>
+
+<property name="hibernate.connection.Driver_class">com.mysql.cj.jdbc.Driver</property>
+<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/hospital_management?useSSL=false</property>
+
+<property name="hibernate.connection.url"> jdbc:mysql://localhost:3306/hospital_management</property>
+<property name="hibernate.connection.user">root</property>
+<property name="hibernate.connection.password">@Devika#7</property>
+<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+
+<property name="hibernate.show_sql">true</property>
+<property name="hibernate.hbm2ddl.auto">update</property>
+
+  <mapping class="Hospitalmanagement.entities.Patient"/>
+        <mapping class="Hospitalmanagement.entities.Doctor"/>
+        <mapping class="Hospitalmanagement.entities.Rooms"/>
+        <mapping class="Hospitalmanagement.entities.Billing"/>
+        <mapping class="Hospitalmanagement.entities.Medical"/>
+        <mapping class="Hospitalmanagement.entities.Prescription"/>
+
+</session-factory>
+</hibernate-configuration>
